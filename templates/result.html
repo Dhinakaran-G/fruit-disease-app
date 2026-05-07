@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin-top: 40px; }
+        img { margin-top: 20px; border: 1px solid #ccc; }
+        .box { display: inline-block; padding: 20px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <h2>Prediction Result</h2>
+
+    <div class="box">
+        <p><b>Disease Name:</b> {{ class_name }}</p>
+        <p><b>Confidence:</b> {{ confidence }}</p>
+        <p><b>Predicted Index:</b> {{ predicted_idx }}</p>
+    </div>
+
+    <br>
+    <div class="box">
+        <h3>Top Predictions</h3>
+        <ul style="text-align:left; display:inline-block;">
+        {% for p in top_predictions %}
+            <li>#{{ p.index }} — {{ p.label }} ({{ p.prob }})</li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <br>
+    <img src="/uploads/{{ image }}" width="300">
+
+    <br><br>
+    <a href="{{ url_for('predict_page') }}">Predict Another</a>
+    |
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
