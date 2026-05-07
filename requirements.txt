@@ -1,6 +1,6 @@
 flask==2.3.3
-tensorflow
+tensorflow==2.13.0
 Pillow==10.0.0
-numpy
+numpy==1.24.3
 google-generativeai==0.4.0
 gunicorn==21.2.0
